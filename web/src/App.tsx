@@ -1,5 +1,4 @@
 import { Board } from './pages/Board'
-import './App.css'
 
 const App = () => {
   return (
