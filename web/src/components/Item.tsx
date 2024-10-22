@@ -4,12 +4,12 @@ import { IconBox } from './IconBox'
 const Item = ({ title, description, leftIconUrl, rightIconUrl }: CardType) => {
   return (
     <div className="item">
-      <IconBox source={ leftIconUrl }/>
-      <div>
+      { leftIconUrl ? <IconBox source={ leftIconUrl }/> : <></> }
+      <div className="content">
         <h3>{ title }</h3>
-        <p>{ description }</p>
+        { description ? <p>{ description }</p>  : <></> }
       </div>
-      <IconBox source={ rightIconUrl }/>
+      { rightIconUrl ? <IconBox source={ rightIconUrl }/> : <></> }
     </div>
   )
 }

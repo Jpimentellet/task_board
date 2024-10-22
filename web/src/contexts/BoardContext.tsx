@@ -10,13 +10,13 @@ const BoardContext = ({ children }: PropsWithChildren) => {
       id: 1,
       title: 'Task in progress',
       description: 'Improve in my skrills about programing',
-      leftIconUrl: 'src/assets/logo.svg',
+      leftIconUrl: null,
       rightIconUrl: 'src/assets/logo.svg'
     },
     {
       id: 2,
       title: 'Task completed',
-      description: 'Wooohoooo',
+      description: null,
       leftIconUrl: 'src/assets/logo.svg',
       rightIconUrl: null
     },
@@ -24,7 +24,7 @@ const BoardContext = ({ children }: PropsWithChildren) => {
       id: 3,
       title: 'Task wont do',
       description: null,
-      leftIconUrl: 'src/assets/logo.svg',
+      leftIconUrl: null,
       rightIconUrl: null
     },
     {

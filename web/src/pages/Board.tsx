@@ -1,6 +1,7 @@
-import { List } from '../components/board/List'
-import { Header } from '../components/board/Header'
 import { BoardContext } from '../contexts/BoardContext'
+import { Footer       } from '../components/board/Footer'
+import { Header       } from '../components/board/Header'
+import { List         } from '../components/board/List'
 
 const Board = () => {
   return (
@@ -8,6 +9,7 @@ const Board = () => {
       <BoardContext>
         <Header/>
         <List/>
+        <Footer/>
       </BoardContext>
     </div>
   )

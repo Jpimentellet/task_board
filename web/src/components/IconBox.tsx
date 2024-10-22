@@ -1,6 +1,6 @@
 import { IconType } from '../types/iconType'
 
-const IconBox = ({ source, background }: IconType) => {
+const IconBox = ({ source }: IconType) => {
   return (
     <figure className="icon">
       <img src={ source || undefined } alt="icon" />
