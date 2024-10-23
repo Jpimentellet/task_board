@@ -1,10 +1,11 @@
-import { Button } from "../Button"
+import { NewStatusButton } from './NewStatusButton'
+import { NewTaskButton } from './NewTaskButton'
 
 const Footer = () => {
   return (
     <div className="footer">
-      <Button icon='add' text='Add task' />
-      <Button icon='submit' text="Add status" />
+      <NewTaskButton/>
+      <NewStatusButton/>
     </div>
   )
 }

@@ -1,13 +1,13 @@
 import { Icons } from '../../enums/icons'
 import { IconBox } from '../IconBox'
 
-const NewTaskButton = () => {
+const NewStatusButton = () => {
   return (
     <div className="button">
-      <IconBox source={ Icons.add } />
-      <p>Add new task</p>
+      <IconBox source={ Icons.submit }/>
+      <p>Add new status</p>
     </div>
   )
 }
 
-export { NewTaskButton }
+export { NewStatusButton }
