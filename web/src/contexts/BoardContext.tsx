@@ -1,10 +1,11 @@
-import { createContext, PropsWithChildren, useContext } from 'react'
+import { createContext, PropsWithChildren, useContext, useState } from 'react'
 import { BoardContextType } from '../types/contexts/boardContextType'
 import { CardType } from '../types/cardType'
 
 const context = createContext<BoardContextType>(null)
 
 const BoardContext = ({ children }: PropsWithChildren) => {
+  const [showForm, setShowForm] = useState(false)
   const tasks: CardType[] = [
     {
       id: 1,
@@ -37,7 +38,11 @@ const BoardContext = ({ children }: PropsWithChildren) => {
   ]
 
   return (
-    <context.Provider value={{ tasks }}>
+    <context.Provider value={{
+      tasks,
+      showForm,
+      setShowForm
+    }}>
       { children }
     </context.Provider>
   )
