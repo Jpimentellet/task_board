@@ -12,8 +12,8 @@ const List = () => {
             key={ t.id }
             title={ t.title }
             description={ t.description }
-            leftIconUrl={ t.leftIconUrl }
-            rightIconUrl={ t.rightIconUrl }
+            leftIconId={ t.leftIconId }
+            rightIconId={ t.rightIconId }
           />
         ))
       }

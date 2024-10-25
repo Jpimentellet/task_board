@@ -6,6 +6,7 @@ const HeaderForm = () => {
 
   return (
     <Modal
+      title='Board details'
       show={ context?.showForm }
       onCancel={ () => context?.setShowForm(false) }
     >

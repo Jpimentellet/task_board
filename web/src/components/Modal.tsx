@@ -1,7 +1,9 @@
 import { PropsWithChildren, useEffect, useRef } from 'react'
 import { Props } from '../types/props'
+import { IconBox } from './IconBox'
+import { Icons } from '../enums/icons'
 
-const Modal = ({ show, onCancel, children }: PropsWithChildren<Props>) => {
+const Modal = ({ show, onCancel, title, children }: PropsWithChildren<Props>) => {
   const ref = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -13,14 +15,12 @@ const Modal = ({ show, onCancel, children }: PropsWithChildren<Props>) => {
     <>
       { show &&
         <dialog className="modal" ref={ ref } onCancel={ onCancel }>
-          <div className="modal-header">
-
+          <div className="heaer">
+            <h3>{ title }</h3>
+            <IconBox iconId={ Icons.close }/>
           </div>
           <div className="modal-content">
             { children }
-          </div>
-          <div className="modal-actions">
-
           </div>
         </dialog>
       }

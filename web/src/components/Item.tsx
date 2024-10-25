@@ -1,15 +1,15 @@
 import { CardType } from '../types/cardType'
 import { IconBox } from './IconBox'
 
-const Item = ({ title, description, leftIconUrl, rightIconUrl }: CardType) => {
+const Item = ({ title, description, leftIconId, rightIconId }: CardType) => {
   return (
     <div className="item">
-      { leftIconUrl ? <IconBox source={ leftIconUrl }/> : <></> }
+      { leftIconId ? <IconBox iconId={ leftIconId }/> : <></> }
       <div className="content">
         <h3>{ title }</h3>
         { description ? <p>{ description }</p>  : <></> }
       </div>
-      { rightIconUrl ? <IconBox source={ rightIconUrl }/> : <></> }
+      { rightIconId ? <IconBox iconId={ rightIconId }/> : <></> }
     </div>
   )
 }

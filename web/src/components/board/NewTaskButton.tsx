@@ -4,7 +4,7 @@ import { IconBox } from '../IconBox'
 const NewTaskButton = () => {
   return (
     <div className="button">
-      <IconBox source={ Icons.add } />
+      <IconBox iconId={ Icons.logo } />
       <p>Add new task</p>
     </div>
   )

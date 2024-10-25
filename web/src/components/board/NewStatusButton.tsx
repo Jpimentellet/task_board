@@ -4,7 +4,7 @@ import { IconBox } from '../IconBox'
 const NewStatusButton = () => {
   return (
     <div className="button">
-      <IconBox source={ Icons.submit }/>
+      <IconBox iconId={ Icons.logo }/>
       <p>Add new status</p>
     </div>
   )

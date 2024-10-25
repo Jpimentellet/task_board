@@ -1,9 +1,23 @@
 import { IconType } from '../types/iconType'
 
-const IconBox = ({ source }: IconType) => {
+const IconBox = ({ iconId }: IconType) => {
+  const base = process.env.ICON_URL
+  const paths = [
+    {
+      id: 1,
+      path: `${base}/logo.svg`,
+    },
+    {
+      id: 2,
+      path: `${base}/close_ring_duotone-1.svg`,
+    }
+  ]
+
+  const findSource = () => paths.find(p => p.id === iconId)?.path
+
   return (
     <figure className="icon-box">
-      <img src={ source || undefined } alt="icon" />
+      <img src={ findSource() } alt="icon" />
     </figure>
   )
 }
