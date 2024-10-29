@@ -1,6 +1,6 @@
 import { IconType } from '../types/iconType'
 
-const IconBox = ({ iconId }: IconType) => {
+const IconBox = ({ iconId, onClick }: IconType) => {
   const base = process.env.ICON_URL
   const paths = [
     {
@@ -16,7 +16,7 @@ const IconBox = ({ iconId }: IconType) => {
   const findSource = () => paths.find(p => p.id === iconId)?.path
 
   return (
-    <figure className="icon-box">
+    <figure className="icon-box" onClick={ onClick }>
       <img src={ findSource() } alt="icon" />
     </figure>
   )

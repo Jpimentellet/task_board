@@ -11,8 +11,8 @@ const Header = () => {
         <img src="src/assets/logo.svg"/>
       </figure>
       <div>
-        <h1>My Board</h1>
-        <p>Task to do today</p>
+        <h1>{ context?.title }</h1>
+        <p>{ context?.description }</p>
       </div>
       <figure onClick={ openHeaderForm }>
         <img src="src/assets/edit_duotone.svg"/>

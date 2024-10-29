@@ -1,5 +1,7 @@
 import { useBoardContext } from '../../contexts/BoardContext'
 import { Modal } from '../Modal'
+import { DescriptionInput } from './DescriptionInput'
+import { TitleInput } from './TitleInput'
 
 const HeaderForm = () => {
   const context = useBoardContext()
@@ -10,7 +12,8 @@ const HeaderForm = () => {
       show={ context?.showForm }
       onCancel={ () => context?.setShowForm(false) }
     >
-      Ete e u hede
+      <TitleInput/>
+      <DescriptionInput/>
     </Modal>
   )
 }

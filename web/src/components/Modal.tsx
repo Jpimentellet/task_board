@@ -15,11 +15,11 @@ const Modal = ({ show, onCancel, title, children }: PropsWithChildren<Props>) =>
     <>
       { show &&
         <dialog className="modal" ref={ ref } onCancel={ onCancel }>
-          <div className="heaer">
-            <h3>{ title }</h3>
-            <IconBox iconId={ Icons.close }/>
+          <div className="header">
+            <h2>{ title }</h2>
+            <IconBox iconId={ Icons.close } onClick={ onCancel }/>
           </div>
-          <div className="modal-content">
+          <div className="content">
             { children }
           </div>
         </dialog>
