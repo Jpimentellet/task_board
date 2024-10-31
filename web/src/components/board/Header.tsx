@@ -3,7 +3,7 @@ import { useBoardContext } from '../../contexts/BoardContext'
 const Header = () => {
   const context = useBoardContext()
 
-  const openHeaderForm = () => context?.setShowForm(true)
+  const openHeaderForm = () => context?.setShowHeaderForm(true)
 
   return (
     <div className="header">

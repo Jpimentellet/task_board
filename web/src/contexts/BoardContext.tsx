@@ -5,9 +5,11 @@ import { CardType } from '../types/cardType'
 const context = createContext<BoardContextType>(null)
 
 const BoardContext = ({ children }: PropsWithChildren) => {
-  const [showForm,       setShowForm] = useState(false)
-  const [title,             setTitle] = useState('My Board')
-  const [description, setDescription] = useState('Tasks to do today!')
+  const [showHeaderForm, setShowHeaderForm] = useState(false)
+  const [showTaskForm,     setShowTaskForm] = useState(false)
+  const [title,                   setTitle] = useState('My Board')
+  const [description,       setDescription] = useState('Tasks to do today!')
+  const [taskName,             setTaskName] = useState('')
 
   const tasks: CardType[] = [
     {
@@ -43,12 +45,16 @@ const BoardContext = ({ children }: PropsWithChildren) => {
   return (
     <context.Provider value={{
       tasks,
-      showForm,
-      setShowForm,
+      showHeaderForm,
+      setShowHeaderForm,
+      showTaskForm,
+      setShowTaskForm,
       title,
       setTitle,
       description,
-      setDescription
+      setDescription,
+      taskName,
+      setTaskName
     }}>
       { children }
     </context.Provider>

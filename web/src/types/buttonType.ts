@@ -1,6 +1,7 @@
-type Icons = 'add' | 'submit'
+import { ReactEventHandler } from 'react'
 
 export type ButtonType = {
-  icon: Icons
-  text: string
+  text: string,
+  iconId?: number,
+  onClick: ReactEventHandler
 }

@@ -1,12 +1,12 @@
 import { ButtonType } from '../types/buttonType'
-import { Icons } from '../enums/icons'
 import { IconBox } from './IconBox'
 
-const Button = ({ icon, text }: ButtonType) => {
+const Button = ({ text, iconId, onClick }: ButtonType) => {
+
   return (
-    <div className="button">
+    <div id="button" onClick={ onClick }>
       <p>{ text }</p>
-      <IconBox source={ Icons[icon] } />
+      { iconId && <IconBox iconId={ iconId }/> }
     </div>
   )
 }

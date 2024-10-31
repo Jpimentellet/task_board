@@ -3,7 +3,13 @@ import { Props } from '../types/props'
 import { IconBox } from './IconBox'
 import { Icons } from '../enums/icons'
 
-const Modal = ({ show, onCancel, title, children }: PropsWithChildren<Props>) => {
+const Modal = ({
+  show,
+  onCancel,
+  title,
+  classes,
+  children
+}: PropsWithChildren<Props>) => {
   const ref = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -14,7 +20,7 @@ const Modal = ({ show, onCancel, title, children }: PropsWithChildren<Props>) =>
   return (
     <>
       { show &&
-        <dialog className="modal" ref={ ref } onCancel={ onCancel }>
+        <dialog className={`modal ${classes}`} ref={ ref } onCancel={ onCancel }>
           <div className="header">
             <h2>{ title }</h2>
             <IconBox iconId={ Icons.close } onClick={ onCancel }/>
