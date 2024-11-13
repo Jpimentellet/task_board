@@ -1,15 +1,18 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react'
 import { BoardContextType } from '../types/contexts/boardContextType'
 import { CardType } from '../types/cardType'
+import { OptionalNumber } from '../types/custom'
 
 const context = createContext<BoardContextType>(null)
 
 const BoardContext = ({ children }: PropsWithChildren) => {
-  const [showHeaderForm, setShowHeaderForm] = useState(false)
-  const [showTaskForm,     setShowTaskForm] = useState(false)
-  const [title,                   setTitle] = useState('My Board')
-  const [description,       setDescription] = useState('Tasks to do today!')
-  const [taskName,             setTaskName] = useState('')
+  const [showHeaderForm,   setShowHeaderForm] = useState(false)
+  const [showTaskForm,       setShowTaskForm] = useState(false)
+  const [title,                     setTitle] = useState('My Board')
+  const [description,         setDescription] = useState('Tasks to do today!')
+  const [taskId,                   setTaskId] = useState<OptionalNumber>(null)
+  const [taskName,               setTaskName] = useState('')
+  const [taskDescription, setTaskDescription] = useState('')
 
   const tasks: CardType[] = [
     {
@@ -53,8 +56,12 @@ const BoardContext = ({ children }: PropsWithChildren) => {
       setTitle,
       description,
       setDescription,
+      taskId,
+      setTaskId,
       taskName,
-      setTaskName
+      setTaskName,
+      taskDescription,
+      setTaskDescription
     }}>
       { children }
     </context.Provider>

@@ -1,0 +1,25 @@
+.icon-section
+  margin: 12px 0
+  label
+    display: inline-block
+    font-size: $input-label-size
+    color: $grey
+    margin-bottom: 6px
+  .used-icons-list
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-template-rows: 1fr 1fr
+    gap: 4px
+    .icon-box
+      cursor: pointer
+      margin-right: auto
+      background-color: $secondary-grey
+    .selected
+      background-color: $secondary-orange
+    .icons-popover
+      .input
+        margin-top: 0
+        input
+          padding: 6px 12px
+          width: 200px
+      .show-popover

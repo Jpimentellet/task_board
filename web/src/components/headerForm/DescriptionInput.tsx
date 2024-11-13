@@ -7,7 +7,7 @@ const DescriptionInput = () => {
   return (
     <TextArea
       label='Description'
-      value={ context?.description }
+      value={ context?.description || '' }
       setter={ description => context?.setDescription(description) }
       placeholder='Write board description'
     />

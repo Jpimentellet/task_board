@@ -1,5 +1,5 @@
 import { Icons } from '../../enums/icons'
-import { IconBox } from '../IconBox'
+import { IconBox } from '../iconSection/IconBox'
 
 const NewStatusButton = () => {
   return (

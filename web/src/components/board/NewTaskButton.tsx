@@ -1,6 +1,6 @@
 import { useBoardContext } from '../../contexts/BoardContext'
 import { Icons } from '../../enums/icons'
-import { IconBox } from '../IconBox'
+import { IconBox } from '../iconSection/IconBox'
 
 const NewTaskButton = () => {
   const context = useBoardContext()

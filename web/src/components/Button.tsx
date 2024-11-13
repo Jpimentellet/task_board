@@ -1,5 +1,5 @@
 import { ButtonType } from '../types/buttonType'
-import { IconBox } from './IconBox'
+import { IconBox } from './iconSection/IconBox'
 
 const Button = ({ text, iconId, onClick }: ButtonType) => {
 

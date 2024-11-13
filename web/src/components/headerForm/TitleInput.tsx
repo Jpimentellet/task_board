@@ -8,7 +8,7 @@ const TitleInput = () => {
     <Input
       label='Board name'
       placeholder='Write your Board title'
-      value={ context?.title }
+      value={ context?.title || '' }
       setter={ title => context?.setTitle(title) }
     />
   )

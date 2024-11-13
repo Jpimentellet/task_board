@@ -1,5 +1,5 @@
 import { CardType } from '../types/cardType'
-import { IconBox } from './IconBox'
+import { IconBox } from './iconSection/IconBox'
 
 const Item = ({ title, description, leftIconId, rightIconId }: CardType) => {
   return (

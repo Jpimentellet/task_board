@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useRef } from 'react'
 import { Props } from '../types/props'
-import { IconBox } from './IconBox'
+import { IconBox } from './iconSection/IconBox'
 import { Icons } from '../enums/icons'
 
 const Modal = ({
