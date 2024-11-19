@@ -1,13 +1,17 @@
 import { iconsApi } from '../helpers/icons_api'
+import {
+  formatCategories
+} from '../serializers/iconSectionSerializer/categories'
+import { formatIcons } from '../serializers/iconSectionSerializer/icons'
 
 const getIconsCategories = async () =>
   iconsApi.get('/categories')
-    .then(({ data }) => data.categories)
+    .then(({ data }) => formatCategories(data.categories))
     .catch(error => { throw error })
 
-const getIcons = (params: string = '') =>
+const getAvailableIcons = (params: string = '') =>
   iconsApi.get(`/icons/search${params}`)
-    .then(({ data }) => data)
+    .then(({ data }) => formatIcons(data.icons))
     .catch(error => { throw error })
 
 const getIconSets = () =>
@@ -21,4 +25,9 @@ const getIconsByIconSetId = (iconSetId: number) =>
   .catch(error => { throw error })
 
 
-export { getIconsCategories, getIcons, getIconSets, getIconsByIconSetId }
+export {
+  getIconsCategories,
+  getAvailableIcons,
+  getIconSets,
+  getIconsByIconSetId
+}

@@ -1,16 +1,19 @@
 import { PropsWithChildren, useContext, useState } from 'react'
 import { createContext } from 'react'
-import { IconSectionContextType } from '../types/contexts/iconSectionContextType'
 import { UsedIconsType } from '../types/iconSectionType'
-import { getIconsCategories } from '../external/icons'
-import { formatCategories } from '../serializers/iconSectionSerializer/categories'
+import { getAvailableIcons, getIconsCategories } from '../external/icons'
+import {
+  CategoryType, IconSectionContextType
+} from '../types/contexts/iconSectionContextType'
 
 const context = createContext<IconSectionContextType>(null)
 
 const IconSectionContext = ({ children }: PropsWithChildren) => {
-  const [showIconsPopover, setShowIconsPopover]   = useState(false)
+  const [showIconsPopover,   setShowIconsPopover] = useState(false)
   const [searchFilterInput, setSearchFilterInput] = useState('')
-  const [categories,               setCategories] = useState([])
+  const [categories,               setCategories] = useState<CategoryType[]>([])
+  const [icons,                         setIcons] = useState([])
+  const [selectedCategories,   setSelectedCategories] = useState<string[]>([])
   const usedIcons: UsedIconsType[] = [
     {
       id: 1,
@@ -23,124 +26,28 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
       isInternal: true
     },
     {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
+      id: 3,
+      url: 'src/assets/logo.svg',
       isSelected: false
     },
     {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
+      id: 4,
+      url: 'src/assets/logo.svg',
       isSelected: false
     },
     {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
+      id: 5,
+      url: 'src/assets/logo.svg',
       isSelected: true
     },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    },
-    {
-      id: 1,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isSelected: false
-    }
   ]
 
   const getCategories = () => getIconsCategories()
-    .then(data => setCategories(formatCategories(data)))
+    .then(data => setCategories(data))
+    .catch(error => console.log('error: ', error))
+
+  const getIcons = () => getAvailableIcons()
+    .then(data => setIcons(data))
     .catch(error => console.log('error: ', error))
 
   return (
@@ -151,7 +58,11 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
       searchFilterInput,
       setSearchFilterInput,
       categories,
-      getCategories
+      icons,
+      selectedCategories,
+      setSelectedCategories,
+      getCategories,
+      getIcons
     }}>
       { children }
     </context.Provider>
