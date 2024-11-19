@@ -9,5 +9,6 @@ export type IconSectionContextType = {
   searchFilterInput:    string,
   categories:           categoryType[],
   setShowIconsPopover:  Dispatch<SetStateAction<boolean>>,
-  setSearchFilterInput: Dispatch<SetStateAction<string>>
+  setSearchFilterInput: Dispatch<SetStateAction<string>>,
+  getCategories:        () => void
 } | null

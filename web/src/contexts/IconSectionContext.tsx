@@ -2,6 +2,8 @@ import { PropsWithChildren, useContext, useState } from 'react'
 import { createContext } from 'react'
 import { IconSectionContextType } from '../types/contexts/iconSectionContextType'
 import { UsedIconsType } from '../types/iconSectionType'
+import { getIconsCategories } from '../external/icons'
+import { formatCategories } from '../serializers/iconSectionSerializer/categories'
 
 const context = createContext<IconSectionContextType>(null)
 
@@ -137,6 +139,10 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
     }
   ]
 
+  const getCategories = () => getIconsCategories()
+    .then(data => setCategories(formatCategories(data)))
+    .catch(error => console.log('error: ', error))
+
   return (
     <context.Provider value={{
       usedIcons,
@@ -144,7 +150,8 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
       setShowIconsPopover,
       searchFilterInput,
       setSearchFilterInput,
-      categories
+      categories,
+      getCategories
     }}>
       { children }
     </context.Provider>

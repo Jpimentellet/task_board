@@ -1,24 +1,24 @@
 import { iconsApi } from '../helpers/icons_api'
 
-const getCategories = async () => {
-  const { data } = await iconsApi.get('/categories')
-  return data
-}
+const getIconsCategories = async () =>
+  iconsApi.get('/categories')
+    .then(({ data }) => data.categories)
+    .catch(error => { throw error })
 
-const getIcons = async (params: string = '') => {
-  const { data } = await iconsApi.get(`/icons/search${params}`)
-  return data
-}
+const getIcons = (params: string = '') =>
+  iconsApi.get(`/icons/search${params}`)
+    .then(({ data }) => data)
+    .catch(error => { throw error })
 
-const getIconSets = async () => {
-  const { data } = await iconsApi.get('/iconsets?premium=0')
-  return data
-}
+const getIconSets = () =>
+  iconsApi.get('/iconsets?premium=0')
+    .then(({ data }) => data)
+    .catch(error => { throw error })
 
-const getIconsByIconSetId = async (iconSetId: number) => {
-  const { data } = await iconsApi.get(`/iconsets/${iconSetId}/icons`)
-  return data
-}
+const getIconsByIconSetId = (iconSetId: number) =>
+  iconsApi.get(`/iconsets/${iconSetId}/icons`)
+  .then(({ data }) => data)
+  .catch(error => { throw error })
 
 
-export { getCategories, getIcons, getIconSets, getIconsByIconSetId }
+export { getIconsCategories, getIcons, getIconSets, getIconsByIconSetId }
