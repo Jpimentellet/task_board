@@ -1,6 +1,7 @@
-export type UsedIconsType = {
-  id: number,
-  url: string,
+export type IconType = {
+  id:          number,
+  url:         string,
+  tags?:       string[],
   isInternal?: boolean,
   isSelected?: boolean
 }

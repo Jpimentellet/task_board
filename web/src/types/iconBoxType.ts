@@ -1,7 +1,7 @@
 import { ReactEventHandler } from 'react'
 import { OptionalString } from './custom'
 
-export type IconType = {
+export type IconBoxType = {
   iconId: number,
   background?: OptionalString,
   onClick?: ReactEventHandler,

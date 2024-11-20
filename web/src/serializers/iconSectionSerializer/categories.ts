@@ -1,8 +1,6 @@
-type Category = { identifier: string, name: string }
+import { IconsCategoriesType } from '../../types/requests/icons'
 
-const formatCategories = (categories: Category[]) => categories.map(c => ({
-  id:   c.identifier,
-  name: c.name
-}))
+const formatCategories = (categories: IconsCategoriesType[]) =>
+  categories.map(c => ({ id: c.identifier, name: c.name }))
 
 export { formatCategories }

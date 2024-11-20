@@ -1,7 +1,7 @@
 import { useIconSectionContext } from '../../contexts/IconSectionContext'
-import { IconType } from '../../types/iconType'
+import { IconBoxType } from '../../types/iconBoxType'
 
-const IconBox = ({ iconId, onClick, classes }: IconType) => {
+const IconBox = ({ iconId, onClick, classes }: IconBoxType) => {
   const context = useIconSectionContext()
 
   const findSource = () => context?.usedIcons.find(i => i.id === iconId)?.url
