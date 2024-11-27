@@ -10,7 +10,7 @@ const getIconsCategories = async () =>
     .catch(error => { throw error })
 
 const getAvailableIcons = (params: string = '') =>
-  iconsApi.get(`/icons/search${params}`)
+  iconsApi.get(`/icons/search?${params}`)
     .then(({ data }) => formatIcons(data.icons))
     .catch(error => { throw error })
 

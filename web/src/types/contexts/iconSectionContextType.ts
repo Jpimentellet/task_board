@@ -1,19 +1,20 @@
 import { Dispatch, SetStateAction } from 'react'
-import { UsedIconsType } from '../iconSectionType'
+import { IconType } from '../iconSectionType'
 
 export type CategoryType = { id: string, name: string }
 export type OptionalCategoryType = CategoryType | null
 
 export type IconSectionContextType = {
-  usedIcons:             UsedIconsType[],
+  usedIcons:             IconType[],
   showIconsPopover:      boolean,
   searchFilterInput:     string,
   categories:            CategoryType[],
-  icons:                 [],
-  selectedCategories:    string[],
+  icons:                 IconType[],
+  selectedCategoryId:      string,
+  setUsedIcons:          Dispatch<SetStateAction<IconType[]>>
   setShowIconsPopover:   Dispatch<SetStateAction<boolean>>,
   setSearchFilterInput:  Dispatch<SetStateAction<string>>,
-  setSelectedCategories: Dispatch<SetStateAction<string[]>>
+  setSelectedCategoryId: Dispatch<SetStateAction<string>>
   getCategories:         () => void,
-  getIcons:              () => void
+  getIcons:              (category: string) => void
 } | null

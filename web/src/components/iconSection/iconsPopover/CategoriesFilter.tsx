@@ -7,22 +7,16 @@ const CategoriesFilter = () => {
 
   useEffect(() => {
     context?.getCategories()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const isSelected = (category: CategoryType) =>
-    context?.selectedCategories.includes(category.id)
+    category.id === context?.selectedCategoryId
 
-  const add = (category: CategoryType) =>
-    context?.setSelectedCategories([...context.selectedCategories, category.id])
+  const removeCategoryId = () => context?.setSelectedCategoryId('')
 
-  const remove = (category: CategoryType) => {
-    const selected = context?.selectedCategories.filter(c => c !== category.id)
-    context?.setSelectedCategories(selected || [])
-  }
-
-  const addToFilter = (category: CategoryType) =>
-    isSelected(category) ? remove(category) : add(category)
+  const setFilter = (category: CategoryType) => isSelected(category) ?
+    removeCategoryId() : context?.setSelectedCategoryId(category.id)
 
   return (
     <div className="categories-filter">
@@ -31,7 +25,7 @@ const CategoriesFilter = () => {
           <label
             key={ c.id }
             className={`item ${ isSelected(c) && 'selected' } `}
-            onClick={ () => addToFilter(c) }
+            onClick={ () => setFilter(c) }
           >
             { c.name }
           </label>
