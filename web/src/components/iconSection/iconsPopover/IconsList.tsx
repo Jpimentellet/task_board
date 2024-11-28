@@ -21,22 +21,23 @@ const IconsList = () => {
     isSelected: false
   })
 
-  const unselectIcons = () => {
-    const unselected = usedIcons.map(setAsUnselected)
-    console.log('unselecting ', unselected)
-    context?.setUsedIcons(unselected)
-  }
-
   const getAllUsedIcons = (icon: IconType) => [
-    ...usedIcons,
+    ...usedIcons.map(setAsUnselected),
     { ...icon, isSelected: true }
   ]
 
+  const isAlreadyUsed = (icon: IconType) =>
+    usedIcons.some(i => i.id === icon.id)
+
+  const getExternalUsedIconsCount = () =>
+    usedIcons.filter(i => !i.isInternal).length
+
+  const canBeAdded = (icon: IconType) =>
+    getExternalUsedIconsCount() <= 22 && !isAlreadyUsed(icon)
+
   const chooseIcon = (icon: IconType) => {
-    unselectIcons()
-    console.log('1 ', usedIcons)
-    console.log('2 ', getAllUsedIcons(icon))
-    context?.setUsedIcons(getAllUsedIcons(icon))
+    const icons = canBeAdded(icon) ? getAllUsedIcons(icon) : usedIcons
+    context?.setUsedIcons(icons)
   }
 
   return (
