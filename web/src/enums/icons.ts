@@ -1,1 +1,1 @@
-export enum Icons { logo =  1, close = 2 }
+export enum Icons { logo = 1, close = 2 }

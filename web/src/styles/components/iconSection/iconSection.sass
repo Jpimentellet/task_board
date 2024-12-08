@@ -16,3 +16,21 @@
       background-color: $secondary-grey
     .selected
       background-color: $secondary-orange
+    .used-icons-list-item
+      position: relative
+      .delete-button
+        display: none !important
+        width: 18px
+        height: 18px
+        padding: 0
+        border-radius: 50px
+        background-color: $tertiary-orange
+        position: absolute
+        right: -4px
+        top: -4px
+        display: flex
+        align-items: center
+        justify-content: center
+      &:hover
+        .delete-button
+          display: flex !important

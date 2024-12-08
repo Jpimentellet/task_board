@@ -14,28 +14,29 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState('')
   const [categories,               setCategories] = useState<CategoryType[]>([])
   const [icons,                         setIcons] = useState<IconType[]>([])
-  const [usedIcons, setUsedIcons] = useState<IconType[]>([
+  const [usedIcons, setUsedIcons] = useState<IconType[]>([])
+  const internalIcons: IconType[] = [
     {
       id: 1,
-      url: 'src/assets/logo.svg',
-      isInternal: true
+      url: 'src/assets/logo.svg'
     },
     {
       id: 2,
-      url: 'src/assets/close_ring_duotone-1.svg',
-      isInternal: true
+      url: 'src/assets/close_ring_duotone-1.svg'
     }
-  ])
+  ]
+
+  const getUsedIconsAsUnselected = () => usedIcons.map((icon: IconType) => ({
+    ...icon,
+    isSelected: false
+  }))
 
   const getCategories = () => getIconsCategories()
     .then(data => setCategories(data))
     .catch(error => console.log('error: ', error))
 
   const getIcons = (category = '') => getAvailableIcons(category)
-    .then(data => {
-      console.log('DATA ', data)
-      setIcons(data)
-    })
+    .then(data => setIcons(data))
     .catch(error => console.log('error: ', error))
 
   return (
@@ -50,8 +51,10 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
       icons,
       selectedCategoryId,
       setSelectedCategoryId,
+      getUsedIconsAsUnselected,
       getCategories,
-      getIcons
+      getIcons,
+      internalIcons
     }}>
       { children }
     </context.Provider>
