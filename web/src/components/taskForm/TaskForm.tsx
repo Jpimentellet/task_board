@@ -1,6 +1,7 @@
 import { useBoardContext } from '../../contexts/BoardContext'
 import { IconSection } from '../iconSection/IconSection'
 import { Modal } from '../Modal'
+import { StatesSection } from '../StatesSection'
 import { DescriptionInput } from './DescriptionInput'
 import { NameInput } from './NameInput'
 
@@ -18,6 +19,7 @@ const TaskForm = () => {
       <NameInput/>
       <DescriptionInput/>
       <IconSection label='Icon'/>
+      <StatesSection label='State'/>
     </Modal>
   )
 }

@@ -5,6 +5,7 @@ import { getAvailableIcons, getIconsCategories } from '../external/icons'
 import {
   CategoryType, IconSectionContextType
 } from '../types/contexts/iconSectionContextType'
+import { getItem } from '../helpers/localstoraje'
 
 const context = createContext<IconSectionContextType>(null)
 
@@ -14,7 +15,10 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState('')
   const [categories,               setCategories] = useState<CategoryType[]>([])
   const [icons,                         setIcons] = useState<IconType[]>([])
-  const [usedIcons, setUsedIcons] = useState<IconType[]>([])
+  const [
+    usedIcons,
+    setUsedIcons
+  ] = useState<IconType[]>(getItem('usedIcons') || [])
   const internalIcons: IconType[] = [
     {
       id: 1,
@@ -23,6 +27,22 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
     {
       id: 2,
       url: 'src/assets/close_ring_duotone-1.svg'
+    },
+    {
+      id: 3,
+      url: 'src/assets/inprogress.svg'
+    },
+    {
+      id: 4,
+      url: 'src/assets/paused.svg'
+    },
+    {
+      id: 5,
+      url: 'src/assets/canceled.svg'
+    },
+    {
+      id: 6,
+      url: 'src/assets/completed.svg'
     }
   ]
 

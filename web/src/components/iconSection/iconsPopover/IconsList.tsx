@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useIconSectionContext } from '../../../contexts/IconSectionContext'
 import { IconBox } from '../IconBox'
 import { IconType } from '../../../types/iconSectionType'
+import { setItem } from '../../../helpers/localstoraje'
 
 const IconsList = () => {
   const context = useIconSectionContext()
@@ -17,10 +18,14 @@ const IconsList = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context?.selectedCategoryId])
 
-  const addAsSelected = (newSelectedIcon: IconType) => context?.setUsedIcons([
-    ...usedIconsAsUnselected,
-    { ...newSelectedIcon, isSelected: true }
-  ])
+  const addAsSelected = (newSelectedIcon: IconType) => {
+    const newUsedIcons = [
+      ...usedIconsAsUnselected,
+      { ...newSelectedIcon, isSelected: true }
+    ]
+    context?.setUsedIcons(newUsedIcons)
+    setItem('usedIcons', newUsedIcons)
+}
 
   const isAlreadyUsed = (icon: IconType) =>
     usedIcons.some(i => i.id === icon.id)
