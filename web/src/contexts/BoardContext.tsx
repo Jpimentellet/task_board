@@ -1,7 +1,8 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react'
-import { BoardContextType } from '../types/contexts/boardContextType'
+import { BoardContextType, TaskState } from '../types/contexts/boardContextType'
 import { CardType } from '../types/cardType'
 import { OptionalNumber } from '../types/custom'
+import { getItem } from '../helpers/localstoraje'
 
 const context = createContext<BoardContextType>(null)
 
@@ -13,6 +14,8 @@ const BoardContext = ({ children }: PropsWithChildren) => {
   const [taskId,                   setTaskId] = useState<OptionalNumber>(null)
   const [taskName,               setTaskName] = useState('')
   const [taskDescription, setTaskDescription] = useState('')
+  const [taskIconId,           setTaskIconId] = useState<OptionalNumber>(null)
+  const [taskState, setTaskState] = useState<TaskState>(getItem('taskState'))
 
   const tasks: CardType[] = [
     {
@@ -61,7 +64,11 @@ const BoardContext = ({ children }: PropsWithChildren) => {
       taskName,
       setTaskName,
       taskDescription,
-      setTaskDescription
+      setTaskDescription,
+      taskIconId,
+      setTaskIconId,
+      taskState,
+      setTaskState
     }}>
       { children }
     </context.Provider>

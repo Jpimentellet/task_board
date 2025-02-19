@@ -43,7 +43,19 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
     {
       id: 6,
       url: 'src/assets/completed.svg'
-    }
+    },
+    {
+      id: 7,
+      url: 'src/assets/selected.svg'
+    },
+    {
+      id: 8,
+      url: 'src/assets/delete.svg'
+    },
+    {
+      id: 9,
+      url: 'src/assets/send.svg'
+    },
   ]
 
   const getUsedIconsAsUnselected = () => usedIcons.map((icon: IconType) => ({

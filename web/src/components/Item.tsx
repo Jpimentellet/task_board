@@ -1,9 +1,15 @@
 import { CardType } from '../types/cardType'
 import { IconBox } from './iconSection/IconBox'
 
-const Item = ({ title, description, leftIconId, rightIconId }: CardType) => {
+const Item = ({
+  title,
+  description,
+  leftIconId,
+  rightIconId,
+  onClick
+}: CardType) => {
   return (
-    <div className="item">
+    <div className="item" onClick={ onClick }>
       { leftIconId ? <IconBox iconId={ leftIconId }/> : <></> }
       <div className="content">
         <h3>{ title }</h3>

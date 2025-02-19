@@ -29,15 +29,13 @@ const UsedIconsList = () => {
     <div className="used-icons-list">
       {
         usedIcons.map((icon, index) => (
-          <div className="used-icons-list-item">
+          <div className="used-icons-list-item" key={ index }>
             <IconBox
-              key={ index }
               iconId={ Icons.close }
               classes='delete-button'
               onClick={ () => deleteUsedIcon(icon) }
             />
             <IconBox
-              key={ icon.id }
               iconId={ icon.id }
               onClick={ () => chooseIcon(icon) }
               classes={ getSelectedClass(icon) }
