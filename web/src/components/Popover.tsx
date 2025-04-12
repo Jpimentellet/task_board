@@ -33,7 +33,7 @@ const Popover = ({ children }: PropsWithChildren) => {
         aria-expanded={ isVisible }
         aria-controls="popover-content"
       >
-        <IconBox iconId={ Icons.close } />
+        <IconBox iconId={ Icons.add } />
       </button>
       {
         isVisible &&

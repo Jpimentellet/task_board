@@ -40,12 +40,12 @@ const IconsList = () => {
     <div className="icons-list">
         {
           context?.icons.map(i => (
-              <IconBox
-                key={ i.id }
-                iconId={ i.id }
-                source={ i.url }
-                onClick={ () => handleChoosed(i) }
-              />
+            <IconBox
+              key={ i.id }
+              iconId={ i.id }
+              source={ i.url }
+              onClick={ () => handleChoosed(i) }
+            />
           ))
         }
     </div>
