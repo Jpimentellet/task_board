@@ -8,7 +8,7 @@ const NewTaskButton = () => {
   const openTaskForm = () => context?.setShowTaskForm(true)
 
   return (
-    <div className="button" onClick={ openTaskForm }>
+    <div className="new-task-button" onClick={ openTaskForm }>
       <IconBox iconId={ Icons.logo } />
       <p>Add new task</p>
     </div>

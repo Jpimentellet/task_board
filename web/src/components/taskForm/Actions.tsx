@@ -19,7 +19,7 @@ const Actions = () => {
       }
       <Button
         text='Send'
-        onClick={ () => {} }
+        onClick={ context?.save }
         iconId={ Icons.selected }
       />
     </div>

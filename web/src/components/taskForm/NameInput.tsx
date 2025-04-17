@@ -8,7 +8,7 @@ const NameInput = () => {
     <Input
       label='Name'
       placeholder='Task name'
-      value={ context?.taskName }
+      value={ context?.taskName || '' }
       setter={ name => context?.setTaskName(name) }
     />
   )

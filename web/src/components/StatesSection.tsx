@@ -55,6 +55,7 @@ const StatesSection = ({ label }: StatesSectionType) => {
               leftIconId={ s?.iconId }
               rightIconId={ getIconIdOfSelected(s) }
               onClick={ () => chooseState(s) }
+              background={ s?.color }
             />
           ))
         }

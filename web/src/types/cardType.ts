@@ -6,5 +6,6 @@ export type CardType = {
   description?: OptionalString,
   leftIconId?:  number | null,
   rightIconId?: number | null,
-  onClick?:     () => void
+  onClick?:     () => void,
+  background?:   string | null
 }

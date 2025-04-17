@@ -3,10 +3,10 @@ import { Dispatch, SetStateAction } from 'react'
 import { OptionalNumber } from '../custom'
 
 export type TaskState = {
-  id: number,
-  name: string,
+  id:      number,
+  name:    string,
   iconId?: number,
-  color?: string
+  color?:  string
 } | null
 
 export type BoardContextType = {
@@ -28,5 +28,6 @@ export type BoardContextType = {
   setTaskName:        Dispatch<SetStateAction<string>>,
   setTaskDescription: Dispatch<SetStateAction<string>>,
   setTaskIconId:      Dispatch<SetStateAction<OptionalNumber>>,
-  setTaskState:       Dispatch<SetStateAction<TaskState>>
+  setTaskState:       Dispatch<SetStateAction<TaskState>>,
+  save:               () => void
 } | null
