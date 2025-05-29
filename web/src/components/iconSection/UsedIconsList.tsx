@@ -1,3 +1,4 @@
+import { useBoardContext } from '../../contexts/BoardContext'
 import { useIconSectionContext } from '../../contexts/IconSectionContext'
 import { Icons } from '../../enums/icons'
 import { IconType } from '../../types/iconSectionType'
@@ -6,6 +7,7 @@ import { IconsPopover } from './iconsPopover/IconsPopover'
 
 const UsedIconsList = () => {
   const context = useIconSectionContext()
+  const boardContext = useBoardContext()
   const usedIcons = context?.usedIcons || []
   const usedIconsAsUnselected = context?.getUsedIconsAsUnselected() || []
 
@@ -23,6 +25,7 @@ const UsedIconsList = () => {
       isSelected: usedIcon.id === icon.id
     }))
     context?.setUsedIcons(newUsedIcons)
+    boardContext?.setTaskIconId(icon.id)
   }
 
   return (

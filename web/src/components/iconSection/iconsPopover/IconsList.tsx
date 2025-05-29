@@ -3,9 +3,11 @@ import { useIconSectionContext } from '../../../contexts/IconSectionContext'
 import { IconBox } from '../IconBox'
 import { IconType } from '../../../types/iconSectionType'
 import { setItem } from '../../../helpers/localstoraje'
+import { useBoardContext } from '../../../contexts/BoardContext'
 
 const IconsList = () => {
-  const context = useIconSectionContext()
+  const context               = useIconSectionContext()
+  const boardContext          = useBoardContext()
   const usedIcons             = context?.usedIcons || []
   const usedIconsAsUnselected = context?.getUsedIconsAsUnselected() || []
   const selectedCategoryId    = context?.selectedCategoryId || ''
@@ -24,6 +26,7 @@ const IconsList = () => {
       { ...newSelectedIcon, isSelected: true }
     ]
     context?.setUsedIcons(newUsedIcons)
+    boardContext?.setTaskIconId(newSelectedIcon.id)
     setItem('usedIcons', newUsedIcons)
 }
 

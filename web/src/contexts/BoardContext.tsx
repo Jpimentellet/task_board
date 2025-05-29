@@ -49,13 +49,15 @@ const BoardContext = ({ children }: PropsWithChildren) => {
   ]
 
   const getNewTask = () => ({
-    name: taskName,
+    name:        taskName,
     description: taskDescription,
-    iconId: taskIconId,
-    stateId: taskState?.id
+    iconId:      taskIconId,
+    stateId:     taskState?.id
   })
 
-  const save = () => console.log(getNewTask())
+  const save = () => {
+    console.log(getNewTask())
+  }
 
   return (
     <context.Provider value={{
