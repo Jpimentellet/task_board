@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useBoardContext } from '../contexts/BoardContext'
 import { Icons } from '../enums/icons'
 import { TaskState } from '../types/contexts/boardContextType'
@@ -33,14 +34,28 @@ const StatesSection = ({ label }: StatesSectionType) => {
     }
   ]
 
-  const isSelected = (state: TaskState) => state?.id === context?.taskState?.id
+  useEffect(() => {
+    setCurrentTaskState()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context?.taskStateId])
+
+  const setCurrentTaskState = () => {
+    const currentState = getCurrentTaskState()
+    if (!currentState) return context?.setTaskStateId(null)
+    context?.setTaskStateId(currentState.id)
+  }
+
+  const getCurrentTaskState = () =>
+    states.find(s => s?.id === context?.taskStateId)
+
+  const isSelected = (state: TaskState) => state?.id === context?.taskStateId
 
   const getIconIdOfSelected = (state: TaskState) =>
     isSelected(state) ? Icons.selected : null
 
   const chooseState = (state: TaskState) => {
-    context?.setTaskState(null)
-    if (!isSelected(state)) context?.setTaskState(state)
+    context?.setTaskStateId(null)
+    if (!isSelected(state)) context?.setTaskStateId(state?.id || null)
   }
 
   return (

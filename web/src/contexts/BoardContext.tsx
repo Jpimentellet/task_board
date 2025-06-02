@@ -2,7 +2,6 @@ import { createContext, PropsWithChildren, useContext, useState } from 'react'
 import { BoardContextType, TaskState } from '../types/contexts/boardContextType'
 import { CardType } from '../types/cardType'
 import { OptionalNumber } from '../types/custom'
-import { getItem } from '../helpers/localstoraje'
 
 const context = createContext<BoardContextType>(null)
 
@@ -15,7 +14,8 @@ const BoardContext = ({ children }: PropsWithChildren) => {
   const [taskName,               setTaskName] = useState('')
   const [taskDescription, setTaskDescription] = useState('')
   const [taskIconId,           setTaskIconId] = useState<OptionalNumber>(null)
-  const [taskState, setTaskState] = useState<TaskState>(getItem('taskState'))
+  const [taskStateId,         setTaskStateId] = useState<OptionalNumber>(null)
+  const [taskState, setTaskState] = useState<TaskState>(null)
 
   const tasks: CardType[] = [
     {
@@ -52,11 +52,34 @@ const BoardContext = ({ children }: PropsWithChildren) => {
     name:        taskName,
     description: taskDescription,
     iconId:      taskIconId,
-    stateId:     taskState?.id
+    stateId:     taskStateId
   })
 
   const save = () => {
     console.log(getNewTask())
+  }
+
+  const openEditForm = (task: CardType) => {
+    setTaskId(task.id || null)
+    setTaskName(task.title || '')
+    setTaskDescription(task.description || '')
+    setTaskIconId(task.leftIconId || null)
+    setTaskStateId(task.rightIconId || null)
+    setShowTaskForm(true)
+  }
+
+  const closeTaskForm = () => {
+    setShowTaskForm(false)
+    if (!taskId) return
+    cleanTaskForm()
+  }
+
+  const cleanTaskForm = () => {
+    setTaskId(null)
+    setTaskName('')
+    setTaskDescription('')
+    setTaskIconId(null)
+    setTaskStateId(null)
   }
 
   return (
@@ -78,9 +101,13 @@ const BoardContext = ({ children }: PropsWithChildren) => {
       setTaskDescription,
       taskIconId,
       setTaskIconId,
+      taskStateId,
+      setTaskStateId,
       taskState,
       setTaskState,
-      save
+      save,
+      openEditForm,
+      closeTaskForm
     }}>
       { children }
     </context.Provider>

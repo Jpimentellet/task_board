@@ -19,6 +19,7 @@ export type BoardContextType = {
   taskName:           string,
   taskDescription:    string,
   taskIconId:         OptionalNumber,
+  taskStateId:        OptionalNumber,
   taskState:          TaskState,
   setShowHeaderForm:  Dispatch<SetStateAction<boolean>>,
   setShowTaskForm:    Dispatch<SetStateAction<boolean>>,
@@ -28,6 +29,9 @@ export type BoardContextType = {
   setTaskName:        Dispatch<SetStateAction<string>>,
   setTaskDescription: Dispatch<SetStateAction<string>>,
   setTaskIconId:      Dispatch<SetStateAction<OptionalNumber>>,
+  setTaskStateId:     Dispatch<SetStateAction<OptionalNumber>>,
   setTaskState:       Dispatch<SetStateAction<TaskState>>,
-  save:               () => void
+  save:               () => void,
+  openEditForm:       (task: CardType) => void,
+  closeTaskForm:      () => void
 } | null

@@ -15,7 +15,7 @@ const TaskForm = () => {
     <Modal
       title={ getTitle() }
       show={ context?.showTaskForm }
-      onCancel={ () => context?.setShowTaskForm(false) }
+      onCancel={ () => context?.closeTaskForm() }
     >
       <NameInput/>
       <DescriptionInput/>

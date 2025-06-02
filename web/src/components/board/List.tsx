@@ -14,6 +14,7 @@ const List = () => {
             description={ t.description }
             leftIconId={ t.leftIconId }
             rightIconId={ t.rightIconId }
+            onClick={ () => context.openEditForm(t) }
           />
         ))
       }
