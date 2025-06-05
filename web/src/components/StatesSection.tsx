@@ -7,32 +7,6 @@ import { Item } from './Item'
 
 const StatesSection = ({ label }: StatesSectionType) => {
   const context = useBoardContext()
-  const states: TaskState[] = [
-    {
-      id: 1,
-      name: 'In progress',
-      iconId: Icons.inprogress,
-      color: '#E9A23B'
-    },
-    {
-      id: 2,
-      name: 'Paused',
-      iconId: Icons.paused,
-      color: '#F5E8D5'
-    },
-    {
-      id: 3,
-      name: 'Canceled',
-      iconId: Icons.canceled,
-      color: '#DD524C'
-    },
-    {
-      id: 4,
-      name: 'Completed',
-      iconId: Icons.completed,
-      color: '#32D657'
-    }
-  ]
 
   useEffect(() => {
     setCurrentTaskState()
@@ -46,7 +20,7 @@ const StatesSection = ({ label }: StatesSectionType) => {
   }
 
   const getCurrentTaskState = () =>
-    states.find(s => s?.id === context?.taskStateId)
+    context?.states.find(s => s?.id === context?.taskStateId)
 
   const isSelected = (state: TaskState) => state?.id === context?.taskStateId
 
@@ -63,7 +37,7 @@ const StatesSection = ({ label }: StatesSectionType) => {
       { label && <label> { label } </label> }
       <div className="states">
         {
-          states.map(s => (
+          context?.states.map(s => (
             <Item
               key={ s?.id }
               description={ s?.name || '' }

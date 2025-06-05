@@ -1,7 +1,11 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react'
-import { BoardContextType, TaskState } from '../types/contexts/boardContextType'
-import { CardType } from '../types/cardType'
 import { OptionalNumber } from '../types/custom'
+import { Icons } from '../enums/icons'
+import {
+  BoardContextType,
+  Task,
+  TaskState
+} from '../types/contexts/boardContextType'
 
 const context = createContext<BoardContextType>(null)
 
@@ -17,34 +21,61 @@ const BoardContext = ({ children }: PropsWithChildren) => {
   const [taskStateId,         setTaskStateId] = useState<OptionalNumber>(null)
   const [taskState, setTaskState] = useState<TaskState>(null)
 
-  const tasks: CardType[] = [
+  const tasks: Task[] = [
     {
       id: 1,
       title: 'Task in progress',
       description: 'Improve in my skrills about programing',
-      leftIconId: null,
-      rightIconId: 1
+      taskIconId: null,
+      taskStateId: 1
     },
     {
       id: 2,
       title: 'Task completed',
       description: null,
-      leftIconId: 1,
-      rightIconId: null
+      taskIconId: 1,
+      taskStateId: null
     },
     {
       id: 3,
       title: 'Task wont do',
       description: null,
-      leftIconId: null,
-      rightIconId: null
+      taskIconId: null,
+      taskStateId: null
     },
     {
       id: 4,
       title: 'Task to do',
       description: 'Improve in my skrills about programing',
-      leftIconId: 1,
-      rightIconId: null
+      taskIconId: 1,
+      taskStateId: null
+    }
+  ]
+
+  const states: TaskState[] = [
+    {
+      id: 1,
+      name: 'In progress',
+      iconId: Icons.inprogress,
+      color: '#E9A23B'
+    },
+    {
+      id: 2,
+      name: 'Paused',
+      iconId: Icons.paused,
+      color: '#F5E8D5'
+    },
+    {
+      id: 3,
+      name: 'Canceled',
+      iconId: Icons.canceled,
+      color: '#DD524C'
+    },
+    {
+      id: 4,
+      name: 'Completed',
+      iconId: Icons.completed,
+      color: '#32D657'
     }
   ]
 
@@ -59,12 +90,12 @@ const BoardContext = ({ children }: PropsWithChildren) => {
     console.log(getNewTask())
   }
 
-  const openEditForm = (task: CardType) => {
+  const openEditForm = (task: Task) => {
     setTaskId(task.id || null)
     setTaskName(task.title || '')
     setTaskDescription(task.description || '')
-    setTaskIconId(task.leftIconId || null)
-    setTaskStateId(task.rightIconId || null)
+    setTaskIconId(task.taskIconId || null)
+    setTaskStateId(task.taskStateId || null)
     setShowTaskForm(true)
   }
 
@@ -85,6 +116,7 @@ const BoardContext = ({ children }: PropsWithChildren) => {
   return (
     <context.Provider value={{
       tasks,
+      states,
       showHeaderForm,
       setShowHeaderForm,
       showTaskForm,

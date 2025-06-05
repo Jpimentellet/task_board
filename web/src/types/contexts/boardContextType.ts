@@ -1,6 +1,13 @@
-import { CardType } from '../cardType'
 import { Dispatch, SetStateAction } from 'react'
-import { OptionalNumber } from '../custom'
+import { OptionalNumber, OptionalString } from '../custom'
+
+export type Task = {
+  id:          number,
+  title:       string,
+  description: OptionalString,
+  taskIconId:  OptionalNumber,
+  taskStateId: OptionalNumber
+}
 
 export type TaskState = {
   id:      number,
@@ -11,7 +18,8 @@ export type TaskState = {
 
 export type BoardContextType = {
   showHeaderForm:     boolean,
-  tasks:              CardType[],
+  tasks:              Task[],
+  states:             TaskState[],
   showTaskForm:       boolean,
   title:              string,
   description:        string,
@@ -32,6 +40,6 @@ export type BoardContextType = {
   setTaskStateId:     Dispatch<SetStateAction<OptionalNumber>>,
   setTaskState:       Dispatch<SetStateAction<TaskState>>,
   save:               () => void,
-  openEditForm:       (task: CardType) => void,
+  openEditForm:       (task: Task) => void,
   closeTaskForm:      () => void
 } | null
