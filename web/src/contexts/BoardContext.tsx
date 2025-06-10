@@ -34,14 +34,14 @@ const BoardContext = ({ children }: PropsWithChildren) => {
       title: 'Task completed',
       description: null,
       taskIconId: 1,
-      taskStateId: null
+      taskStateId: 4
     },
     {
       id: 3,
       title: 'Task wont do',
       description: null,
       taskIconId: null,
-      taskStateId: null
+      taskStateId: 3
     },
     {
       id: 4,
