@@ -60,6 +60,10 @@ const IconSectionContext = ({ children }: PropsWithChildren) => {
       id: 10,
       url: 'src/assets/add_round_duotone.svg'
     },
+    {
+      id: 11,
+      url: 'src/assets/trash.svg'
+    }
   ]
 
   const getUsedIconsAsUnselected = () => usedIcons.map((icon: IconType) => ({

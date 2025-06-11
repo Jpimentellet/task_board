@@ -9,7 +9,7 @@ const NewTaskButton = () => {
 
   return (
     <div className="new-task-button" onClick={ openTaskForm }>
-      <IconBox iconId={ Icons.logo } />
+      <IconBox iconId={ Icons.add } />
       <p>Add new task</p>
     </div>
   )

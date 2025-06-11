@@ -16,6 +16,7 @@ const TaskForm = () => {
       title={ getTitle() }
       show={ context?.showTaskForm }
       onCancel={ () => context?.closeTaskForm() }
+      classes='task-form'
     >
       <NameInput/>
       <DescriptionInput/>

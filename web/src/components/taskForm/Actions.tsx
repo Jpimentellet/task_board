@@ -14,7 +14,8 @@ const Actions = () => {
           <Button
             text='Delete'
             onClick={ () => {} }
-            iconId={ Icons.close }
+            iconId={ Icons.trash }
+            classes='delete-button'
           />
       }
       <Button

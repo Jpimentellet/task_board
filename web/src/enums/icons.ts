@@ -8,5 +8,6 @@ export enum Icons {
   selected   = 7,
   delete     = 8,
   send       = 9,
-  add        = 10
+  add        = 10,
+  trash      = 11
 }
