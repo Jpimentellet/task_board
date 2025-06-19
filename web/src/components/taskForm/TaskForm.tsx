@@ -3,6 +3,7 @@ import { IconSection } from '../iconSection/IconSection'
 import { Modal } from '../Modal'
 import { StatesSection } from '../StatesSection'
 import { Actions } from './Actions'
+import { DeleteModal } from './DeleteModal/DeleteModal'
 import { DescriptionInput } from './DescriptionInput'
 import { NameInput } from './NameInput'
 
@@ -23,6 +24,7 @@ const TaskForm = () => {
       <IconSection label='Icon'/>
       <StatesSection label='State'/>
       <Actions/>
+      <DeleteModal/>
     </Modal>
   )
 }

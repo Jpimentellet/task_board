@@ -13,7 +13,7 @@ const Actions = () => {
         !isNewTask() &&
           <Button
             text='Delete'
-            onClick={ () => {} }
+            onClick={ () => context?.setShowDeleteTask(true) }
             iconId={ Icons.trash }
             classes='delete-button'
           />

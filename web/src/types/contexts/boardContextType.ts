@@ -18,6 +18,7 @@ export type TaskState = {
 
 export type BoardContextType = {
   showHeaderForm:     boolean,
+  showDeleteTask:     boolean,
   tasks:              Task[],
   states:             TaskState[],
   showTaskForm:       boolean,
@@ -31,6 +32,7 @@ export type BoardContextType = {
   taskState:          TaskState,
   setShowHeaderForm:  Dispatch<SetStateAction<boolean>>,
   setShowTaskForm:    Dispatch<SetStateAction<boolean>>,
+  setShowDeleteTask:  Dispatch<SetStateAction<boolean>>,
   setTitle:           Dispatch<SetStateAction<string>>,
   setDescription:     Dispatch<SetStateAction<string>>,
   setTaskId:          Dispatch<SetStateAction<OptionalNumber>>,
